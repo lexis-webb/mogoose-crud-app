@@ -6,6 +6,9 @@ const conn = require('./config/db')
 conn()
 const starterFruits = require('./config/seed')
 const Fruit = require('./models/fruit')
+const  fruitRoutes = require('./routes/fruitRoutes')
+
+app.use('/api/fruits', fruitRoutes)
 
 // home route 
 app.get('/', (req,res)=> {
@@ -21,6 +24,8 @@ app.get('/fruits/seed', async (req,res) => {
         console.log(`Something went wrong loading send data: ${error.message}`)
     }
 })
+
+
 
 
 app.listen(port, () =>{
