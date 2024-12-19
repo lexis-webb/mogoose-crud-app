@@ -8,12 +8,14 @@ const starterFruits = require('./config/seed')
 const Fruit = require('./models/fruit')
 const  fruitRoutes = require('./routes/fruitRoutes')
 
+app.use(express.json())
 app.use('/api/fruits', fruitRoutes)
 
 // home route 
 app.get('/', (req,res)=> {
     res.send('Home Page!')
 })
+
 // Seed route = populate or db with starter data
 app.get('/fruits/seed', async (req,res) => {
     try{
